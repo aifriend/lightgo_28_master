@@ -18,7 +18,7 @@ class RandBot(interface.Bot):
                            for lh in state["lighthouses"])
 
         # Si estamos en un faro...
-        if (cx, cy) in self.lighthouses:
+        if (cx, cy) in lighthouses:
             # Probability 60%: connect with a valid remote lighthouse
             if lighthouses[(cx, cy)]["owner"] == self.player_num:
                 if random.randrange(100) < 60:

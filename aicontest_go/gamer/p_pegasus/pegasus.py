@@ -42,7 +42,7 @@ class Pegasus(Bot):
                     }
 
             # Attack
-            if state["energy"] >= lh_states[my_pos]["energy"]:  # 100
+            if 10 < state["energy"] >= lh_states[my_pos]["energy"]:  # 100
                 energy = state["energy"]
                 self.log("ATTACK TO: %s", str(my_pos))
                 return {
