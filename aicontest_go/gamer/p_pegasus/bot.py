@@ -21,6 +21,10 @@ class Bot(object):
     # ==========================================================================
 
     def __init__(self, init_state):
+        if init_state is None:
+            self.reset()
+            return
+
         """Inicializar el bot: llamado al comienzo del juego."""
         self.player_num = init_state["player_num"]
         self.player_count = init_state["player_count"]

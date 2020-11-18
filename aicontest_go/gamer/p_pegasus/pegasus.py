@@ -2,7 +2,7 @@ import random
 
 from bot import Bot
 from interface import Interface
-from utils import Utils
+from Utils import Utils
 
 
 class Pegasus(Bot):
@@ -12,7 +12,14 @@ class Pegasus(Bot):
     NAME = "Pegasus"
     MAX_INT = 1e40
 
-    def __init__(self, init_state):
+    def __init__(self, init_state=None):
+        super(Pegasus, self).__init__(init_state)
+        self.lh_dist_maps = {
+            lh: self._get_lh_dist_map(lh, init_state["map"])
+            for lh in self.lighthouses
+        }
+
+    def initialize(self, init_state):
         super(Pegasus, self).__init__(init_state)
         self.lh_dist_maps = {
             lh: self._get_lh_dist_map(lh, init_state["map"])
